@@ -3,47 +3,62 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var EnglishWord=new Array("audi","english","volvo");;
+var EnglishWord=new Array("");
+var id=0;
+var num=0;
+window.onbeforeunload = function(){
+    if(typeof XMLHttpRequest !== 'undefined'){
+        var xhr = new XMLHttpRequest();
+    }else{
+        var xhr = new ActiveXObject('Microsoft.XMLHttp');
+    }
+    xhr.open('get','updid/'+id);
+    xhr.send(null);
+}
  function upd(){
-     if(EnglishWord[0] == null){
-//         if(typeof XMLHttpRequest !== 'undefined'){
-//            var xhr = new XMLHttpRequest();
-//        }else{
-//            var xhr = new ActiveXObject('Microsoft.XMLHttp');
-//        }
-//        xhr.onreadystatechange=function(){
-//            if(xhr.readyState == 4){
-//                eval("var next="+xhr.responseText);
-//                $('#danci').text(next.text);
-//                $('.transl').text(next.transl);
-//                $('#word').val('');
-//                //alert('keyup("'+next+'")')
-//                $('#word').attr('onkeyup','keyup("'+next.text+'")');
-//            }
-//        };
-//        xhr.open('get','upd');
-//        xhr.send(null);
-alert(1);
-     }else{
-         $('#danci').text(EnglishWord[0]);
-        //$('#danci').text(EnglishWord[0].text);
-        //$('.transl').text(EnglishWord[0].transl);
+     //EnglishWord[0] == null
+     if(EnglishWord.word == null || EnglishWord.word[0] == null){
+         flag = false;
+         if(typeof XMLHttpRequest !== 'undefined'){
+            var xhr = new XMLHttpRequest();
+        }else{
+            var xhr = new ActiveXObject('Microsoft.XMLHttp');
+        }
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState == 4){
+                EnglishWord = JSON.parse(xhr.responseText);
+                //console.log(EnglishWord.word[0])
+            }
+        };
+        xhr.open('get','upd/'+id,false);
+        xhr.send(null);
+    }
+    if(EnglishWord.word[0] != null){
+         //$('#danci').text(EnglishWord[0]);
+        $('#danci').text(EnglishWord.word[0].text);
+        $('.transl').text(EnglishWord.word[0].transl);
         $('#word').val('');
         //alert('keyup("'+next+'")')
         //$('#word').attr('onkeyup','keyup("'+EnglishWord[0].text+'")');
-        $('#word').attr('onkeyup','keyup("'+EnglishWord[0]+'")');
-        for(x in EnglishWord){
+        $('#word').attr('onkeyup','keyup("'+EnglishWord.word[0].text+'")');
+        for(x in EnglishWord.word){
             if(x >= 1){
-                EnglishWord[x-1] = EnglishWord[x];
+                EnglishWord.word[x-1] = EnglishWord.word[x];
             }
-            console.log(EnglishWord[x]);
-            if(EnglishWord[x+1] == null){
-                EnglishWord[x] = null;
+            //console.log(x*1+1);
+            if(EnglishWord.word[x*1+1] == null){
+                id = EnglishWord.word[x].id;
+                EnglishWord.word[x] = null;
+                break;
             }
         }
+        //console.log(EnglishWord.word[0]);
         //EnglishWord[EnglishWord.length]='\0';
      }
-    console.log(EnglishWord);
+     
+     //
+     ++num;
+     $('#num').text('本次已经打了'+num+'个字');
 }
 function keyup(word){
     var text = word;

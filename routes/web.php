@@ -65,3 +65,7 @@ Route::post('/infostorage','Home\UserController@infostorage');
  */
 //打字背单词页面
 Route::get('/Word','Word\WordController@index');
+//单词更新
+Route::get('/upd/{id}','Word\WordController@upd');
+//更新用户打字进程
+Route::get('/updid/{id}','Word\WordController@updid');

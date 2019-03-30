@@ -15,7 +15,7 @@
         
         <!--引入word.js-->
         <script type="text/javascript" src="js/word.js"></script>
-        <style type="text/css" media="screen">
+        <style>
             h1{
                 text-align: center;
             }
@@ -29,10 +29,28 @@
             .red{
                 color: red;
             }
+            body{
+                background-image:url(storage/20180818.jpg);
+            }
+            .left-sidebar{
+                background:rgba(0,0,0,0.3);
+                color:#eeef;
+                padding:20px;
+                height:400px
+            }
+            .right-sidebar ul{
+                background:rgba(0,0,0,0.3);
+                color:#eeef;
+                padding:10px 20px;
+            }
+            .right-sidebar li{
+                list-style-type:none;
+                padding:10px 20px;
+            }
         </style>
          
     </head>
-    <body style="background-color:#E8E8E8">
+    <body >
     <nav class="navbar navbar-default ">
         <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -84,8 +102,10 @@
       </div>
     </nav>
     <div class="container" >
-        <div class="pull-left row col-md-8" style="background-color:#FFF;padding:20px;height:400px">
-           <div class="row">
+        <div class="row">
+        <div class="col-md-8 left-sidebar" style="">
+            @auth
+            <div class="row">
                 <h1 id="danci">controller</h1>
             </div>
             <div class="row">
@@ -95,9 +115,35 @@
             <div class="row">
                 <input id="word" style="width:60%;margin-left:20%;margin-right:20%" class="form-control" onkeyup="keyup('controller')">
             </div>
+            @endauth
+            @guest
+            <div class="row">
+                <h1 id="danci">hello</h1>
+            </div>
+            <div class="row">
+                <h3 class="transl">你好</h3>
+            </div>
+            <div class="adio"></div>
+            <div class="row">
+                <input id="word" style="width:60%;margin-left:20%;margin-right:20%" class="form-control" onkeyup="keyup('hello')">
+            </div>
+            @endguest
+           
         </div>
-
-
+        <div class="col-md-4 right-sidebar">
+            <ul>
+                <li id="num">
+                    本次已经打了0个字
+                </li>
+                <li>
+                    正确：111
+                </li>
+                <li>
+                    错误：1
+                </li>
+            </ul>
+        </div>
+        </div>
     </div>
     </body>
 </html>
