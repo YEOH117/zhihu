@@ -31,7 +31,7 @@
             <div class="container">
                 <div class="navbar-header">
                   <a class="navbar-brand" href="/">
-                    <img alt="Brand" src="#">
+                    <img alt="纸糊" src="#">
                   </a>
                 </div>
                 <div class="collapse navbar-collapse navbar-right">
@@ -79,12 +79,12 @@
                     <li>
                         @if($info->zan->where('uid',\Auth::id())->isNotEmpty())
                         <a class="btn btn-info zan" >
-                        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
                         <span class='zantext'>取消赞同</span>
                         </a>
                         @else
                         <a class="btn btn-info zan" >
-                        <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
                         <span class='zantext'>赞同</span>
                         </a>
                         @endif
@@ -131,7 +131,7 @@
                         @endcan
                     </li>
                     <li>
-                        <a class="btn">
+                        <a class="btn" href="./create">
                         <span class="glyphicon glyphicon-inbox" aria-hidden="true"></span>投稿
                         </a>
                     </li>

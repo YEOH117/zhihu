@@ -17,7 +17,7 @@ class CreateCommentsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('post_id');
             $table->text('content');
-            $table->unsignedInteger('form_uid');
+            $table->unsignedInteger('from_uid');
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@
             }
             .right-lower-sidebar li{
                 list-style-type:none;
-                padding:10px 20px;
+                padding:10px 10px 20px 0px;
             }
             .right-lower-sidebar{
                 margin-top:15px;
@@ -77,7 +77,7 @@
                   <span class="caret"></span>
               </a>
               <ul class="dropdown-menu">
-                <li><a href="#">主页</a></li>
+                <li><a href="/">主页</a></li>
                 <li><a href="#">设置</a></li>
                 <li role="separator" class="divider"></li>
                 <li>
@@ -130,8 +130,8 @@
             @endforeach
             </ul>
         </div>
-    <div style="padding-left:35px;">
-        <div class="pull-right  col-md-4 right-sidebar">
+        <div class="col-md-4" style="padding-right:0px;">
+        <div class="pull-right  col-md-12 right-sidebar">
             <div>
                 <div class="pull-left col-md-6 cloumn">
                     <h4>关注了</h4>
@@ -143,7 +143,7 @@
                 </div>
             </div>
         </div>
-        <div class="pull-right col-md-4 right-lower-sidebar">
+        <div class="pull-right col-md-12 right-lower-sidebar">
             <ul>
                 <li>
                     关注的话题<span class="pull-right">1</span>
@@ -162,7 +162,7 @@
                 </li>
             </ul>
         </div>
-        <div class="pull-right col-md-4 footer">
+        <div class="pull-right col-md-12 footer">
             <ul>
                 <li>底部预留部分</li>
                 <li>联系我们</li>

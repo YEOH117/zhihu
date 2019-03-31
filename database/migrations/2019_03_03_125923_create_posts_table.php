@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('title',100);
             $table->text('content');
             $table->tinyInteger('uid');
-            $table->tinyInteger('del');
+            $table->tinyInteger('del')->default(0);
             $table->timestamps();
         });
     }

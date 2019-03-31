@@ -100,7 +100,7 @@
       </div>
     </nav>
     <div class="container" >
-        <div class="pull-left row col-md-8" style="background-color:#FFF;padding:20px">
+        <div class="pull-left row col-md-8" style="background-color:#FFF;padding:20px;">
             <ul class="left-sidebar">
                 @foreach($info as $value)
                 <li>
@@ -110,7 +110,7 @@
                             <img class='media-object img-rounded' src='{{ $value->image }}' width='200px' alt='文章缩略图1'>
                         </div>
                         <div class='media-body'>
-                            {{ strip_tags($value->content) }}
+                            {{ $value->content }}
                         </div>
                         @auth
                         <a class="btn btn-info btn-sm zan{{ $value->id }}" >
@@ -118,7 +118,7 @@
                         @guest
                         <a class="btn btn-info btn-sm" >
                         @endguest
-                        <span class="glyphicon glyphicon-chevron-up ZanText{{ $value->id }}" aria-hidden="true">赞同{{ $value->zan->count() }}</span>
+                        <span class="glyphicon glyphicon-thumbs-up ZanText{{ $value->id }}" aria-hidden="true">赞同{{ $value->zan->count() }}</span>
                         </a>
                     </div>
                     <script>
@@ -134,8 +134,8 @@
                 @endforeach
             </ul>
         </div>
-
-        <div class="pull-right col-md-4 right-sidebar">
+        <div class="pull-right col-md-4 ">
+        <div class="col-md-12 right-sidebar">
             <div>
                 <ul>
                     <li>
@@ -159,7 +159,7 @@
                 </ul>
             </div>
         </div>
-        <div class="pull-right col-md-4 right-lower-sidebar">
+        <div class="col-md-12 right-lower-sidebar">
             <ul>
                 <li>
                     <span class="glyphicon glyphicon-star" aria-hidden="true" ></span>
@@ -175,13 +175,14 @@
                 </li>
             </ul>
         </div>
-        <div class="pull-right col-md-4 footer">
+        <div class="col-md-12 footer">
             <ul>
                 <li>底部预留部分</li>
                 <li>联系我们</li>
                 <li>&copy;2019叶斌龙</li>
             </ul>
         </div>
+    </div>
     </div>
     </body>
 </html>

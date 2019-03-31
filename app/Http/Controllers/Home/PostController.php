@@ -14,6 +14,9 @@ class PostController extends Controller
     //文章列表
     public function index(){
         $info=Post::all()->where('del','=',0);
+        foreach($info as $value){
+            $value['content'] = mb_substr(strip_tags($value['content']), 0,200)."。。。";
+        }
         return view('/Home/index', compact('info'));
     }
     
