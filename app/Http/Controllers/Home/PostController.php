@@ -8,6 +8,7 @@ use App\Post;
 use App\User;
 use App\Comment;
 use App\Reply;
+use App\Collection;
 
 class PostController extends Controller
 {
@@ -58,7 +59,15 @@ class PostController extends Controller
             //查询评论中的评论
             $value['reply'] = Comment::find($value->id)->reply;
         }
-        return view('/Home/post', compact('info','comment'));
+        //查询是否被用户收藏
+        $collection = new Collection;
+        $isCollect = $collection->where('post_id',$id)->where('user_id',\Auth::id())->first();
+        if($isCollect){
+            $collect = "取消收藏";
+        }else{
+            $collect = "收藏";
+        }
+        return view('/Home/post', compact('info','comment','collect'));
     }
 
     //文章编辑页

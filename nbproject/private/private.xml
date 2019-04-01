@@ -3,11 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/webSoftware/item/zhihu/public/js/word.js</file>
+            <file>file:/D:/webSoftware/item/zhihu/app/Http/Controllers/Home/CommentController.php</file>
             <file>file:/D:/webSoftware/item/zhihu/routes/web.php</file>
-            <file>file:/D:/webSoftware/item/zhihu/app/Http/Controllers/Word/WordController.php</file>
-            <file>file:/D:/webSoftware/item/zhihu/resources/views/Word/word.blade.php</file>
+            <file>file:/D:/webSoftware/item/zhihu/resources/views/Home/homepage.blade.php</file>
+            <file>file:/D:/webSoftware/item/zhihu/app/Http/Controllers/Home/PostController.php</file>
             <file>file:/D:/webSoftware/item/zhihu/resources/views/Home/index.blade.php</file>
+            <file>file:/D:/webSoftware/item/zhihu/resources/views/Home/post.blade.php</file>
+            <file>file:/D:/webSoftware/item/zhihu/resources/views/Home/people_edit.blade.php</file>
         </group>
     </open-files>
 </project-private>

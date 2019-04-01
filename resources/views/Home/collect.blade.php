@@ -101,7 +101,6 @@
             </div>
             <div>
                 <h2 class="pull-left" style="margin-left:20px;">{{ $user->name }}</h2>
-                <a class="btn btn-default pull-right" href="/user/edit/{{ \Auth::id() }}">编辑用户资料</a>
             </div>
         </div>
     </div>
@@ -109,23 +108,24 @@
     
         <div class="pull-left  col-md-8" style="background-color:#FFF;">
             <ul class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="#">动态</a></li>
+                <li role="presentation" class="active"><a href="">收藏的文章</a></li>
             </ul>
             <ul>
-            @foreach($user->post->where('del',0) as $post)
-                <li style="margin-top:20px;">
-                    <div class='media'>
-                        <div class="pull-right">{{ $post->created_at }}</div>
-                        <a href='/post/{{ $post->id }}'><h4 class='media-heading'>{{ $post->title }}</h4></a>
-                        <div class='media-left media-middle'>
-                            <img class='media-object img-rounded' src='{{ $post->image }}' width='200px' alt='文章缩略图1'>
-                        </div>
-                        <div class='media-body'>
-                            {{ mb_substr(strip_tags($post->content), 0,200)."。。。" }}
-                            
-                        </div>
+            @foreach($post as $value)
+            @if(!$value->del)
+            <li style="margin-top:20px;">
+                <div class='media'>
+                    <a href='/post/{{ $value->id }}'><h4 class='media-heading'>{{ $value->title }}</h4></a>
+                    <div class='media-left media-middle'>
+                        <img class='media-object img-rounded' src='{{ $value->image }}' width='200px' alt='文章缩略图1'>
                     </div>
-                </li>
+                    <div class='media-body'>
+                        {{ mb_substr(strip_tags($value->content), 0,200)."。。。" }}
+
+                    </div>
+                </div>
+            </li>
+            @endif
             @endforeach
             </ul>
         </div>
@@ -145,16 +145,16 @@
         <div class="pull-right col-md-12 right-lower-sidebar">
             <ul>
                 <li>
-                     <a href="/user/collect">收藏的文章</a><span class="pull-right">1</span>
+                    <a class='btn' href="/user/collect">收藏的文章</a>
                 </li>
                  <li>
-                    关注的专栏<span class="pull-right">2</span>
+                     <a class='btn'>关注的专栏</a>
                 </li>
                  <li>
-                    关注的问题<span class="pull-right">3</span>
+                     <a class='btn'>关注的问题</a>
                 </li>
                 <li>
-                    关注的收藏夹<span class="pull-right">4</span>
+                    <a class='btn'>关注的收藏夹</a>
                 </li>
                 <li>
                     个人主页被浏览123次

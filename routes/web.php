@@ -49,6 +49,8 @@ Route::get('/zan/{post_id}/{uid}','Home\ZanController@zan');
 
 //用户主页
 Route::get('/user/home','Home\UserController@index');
+//用户文章收藏页
+Route::get('/user/collect','Home\UserController@collect');
 
 //用户信息编辑页
 Route::get('/user/edit/{id}','Home\UserController@edit');
@@ -58,6 +60,11 @@ Route::post('/AvatarUpload','Home\UserController@AvatarUpload');
 Route::post('/CoverUpload','Home\UserController@CoverUpload');
 //其他信息存储
 Route::post('/infostorage','Home\UserController@infostorage');
+
+/**
+ * 收藏功能
+ */
+Route::get('/collection/{post_id}','Home\CollectionController@collection');
 
 
 /**

@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Validator;
 use App\User;
 use App\Userdata;
+use App\Collection;
+use App\Post;
 
 class UserController extends Controller
 {
@@ -14,6 +16,16 @@ class UserController extends Controller
     public function index(){
         $user = User::find(\Auth::id());
         return view('Home/homepage',compact('user'));
+    }
+    
+    //用户文章收藏页
+    public function collect(){
+        $user = User::find(\Auth::id());
+        $info = Collection::get()->where('user_id',\Auth::id());
+        foreach ($info as $key => $value){
+            $post[$key]=Post::find($value->post_id);
+        }
+        return view('Home/collect',compact('user','post'));
     }
     
     //用户信息编辑页

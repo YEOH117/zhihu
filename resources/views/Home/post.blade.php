@@ -108,9 +108,22 @@
                         </a>
                     </li>
                     <li>
-                        <a class="btn">
-                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>收藏
+                        <a class="btn collection">
+                        <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                        <span class='collectext'>{{ $collect }}</span>
                         </a>
+                        @auth
+                            <script>
+                                $('.collection').click(function(){
+                                   $.get('/collection/{{ $info->id }}',function(data){
+                                        var info = JSON.parse(data);
+                                        //console.log(info.text);
+                                        $(".collectext").text(info.text);
+                                   }); 
+                                   //$('.collection').load('/collection/{{ $info->id }}');
+                                });
+                            </script>
+                        @endauth
                     </li>
                     <li class="dropdown">
                         @can('delete',$info)

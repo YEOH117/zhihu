@@ -14,4 +14,8 @@ class User extends Authenticatable
     public function post(){
         return $this->hasMany('App\post','uid','id');
     }
+    
+    public function collection(){
+        return $this->hasMany('App\collection','user_id','id');
+    }
 }
